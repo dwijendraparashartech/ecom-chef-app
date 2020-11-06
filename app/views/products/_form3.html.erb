@@ -1,0 +1,99 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<br><br>  
+
+<%= form_with(model: @product, local: true, html: {class: "form-horizontal"}) do |form| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="product_name">Product Name</label>  
+      <div class="col-md-4">
+        <%= form.text_field :title, :class => "form-control input-md", :placeholder => "PRODUCT NAME", required: true  %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="product_name_fr">Product Description</label>  
+      <div class="col-md-4">
+      <%= form.text_field :description, :class => "form-control input-md", :placeholder => "PRODUCT DESCRIPTION"%>   
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="product_name_fr">Available Quantity</label>  
+      <div class="col-md-4">
+      <%= form.text_field :SKU, :class => "form-control input-md", :placeholder => "SKU", required: true  %>   </div>
+    </div>
+
+
+   <div class="form-group">
+      <label class="col-md-4 control-label" for="product_name_fr">Price</label>  
+      <div class="col-md-4">
+      <%= form.text_field :weight, :class => "form-control input-md", :placeholder => "PRODUCT WEIGHT"  %> 
+      </div>
+    </div>
+
+   
+
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="available_quantity">Size</label>  
+        <div class="col-md-4">
+          <%= form.number_field :available_item, :class => "form-control input-md", :placeholder => "AVAILABLE QUANTITY", required: true, min: 0 %>
+        </div>
+      </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="available_quantity">PRICE</label>  
+      <div class="col-md-4">
+        <%= form.text_field :price, :class => "form-control input-md", :placeholder => "DISCOUNT PRICE", required: true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="available_quantity">Status</label>  
+      <div class="col-md-4">
+        <%= form.text_field :unit_price, :class => "form-control input-md", :placeholder => "FULL PRICE", required: true %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="product_name_fr">Online</label>  
+      <div class="col-md-4">
+      <%= form.text_field :description, :class => "form-control input-md", :placeholder => "Additional Details"%>    
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="filebutton">main_image</label>
+      <div class="col-md-4">
+        <%= form.file_field :image, :class => "input-file" %>
+      </div>
+    </div>
+    </fieldset><hr>
+    <center>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="filebutton"></label>
+      <div class="col-md-4">
+        <div class="actions">
+          <center><%= form.submit %></center>
+        </div>
+      </div>
+    </div>
+    </center><hr>      
+    </fieldset>
+  
+<% end %>

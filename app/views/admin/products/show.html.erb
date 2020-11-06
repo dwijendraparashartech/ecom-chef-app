@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="co-md-12">
+            <div class="col-md-4">
+                <%= image_tag @product.get_image_url, width: "200", height: "200" %>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6">
+                        Product Id
+                    </div>
+                    <div class="col-md-6">
+                        <%= @product.id %>
+                    </div>
+                    <div class="col-md-6">
+                        Product Name
+                    </div>
+                    <div class="col-md-6">
+                        <%= @product.name %>
+                    </div>
+                    <div class="col-md-6">
+                        Product Description
+                    </div>
+                    <div class="col-md-6">
+                        <%= @product.description %>
+                    </div>
+                    <div class="col-md-6">
+                        Product Status
+                    </div>
+                    <div class="col-md-6">
+                        <%= @product.status %>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

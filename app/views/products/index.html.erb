@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
       <th>Name</th>
       <th>Description</th>
       <th>Image</th>
@@ -21,10 +20,9 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.user_id %></td>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
-        <td><%= product.image %></td>
+        <td><%= image_tag product.get_image_url, style: 'height:50px;width:100px;margin-bottom:20px;' %></td>
         <td><%= product.available_quantity %></td>
         <td><%= product.price %></td>
         <td><%= product.size %></td>

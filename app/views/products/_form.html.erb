@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
+
 
   <div class="field">
     <%= form.label :name %>
@@ -28,11 +25,11 @@
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.text_field :image %>
+    <%= form.file_field :image %>
   </div>
 
   <div class="field">
-    <%= form.label :available_quantity %>
+    <%= form.label :stock %>
     <%= form.number_field :available_quantity %>
   </div>
 
@@ -44,11 +41,6 @@
   <div class="field">
     <%= form.label :size %>
     <%= form.text_field :size %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.check_box :status %>
   </div>
 
   <div class="field">
