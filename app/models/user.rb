@@ -9,7 +9,7 @@ class User < ApplicationRecord
     self.role.try(:downcase) === 'admin'
   end
 
-  def is_cheif?
-    self.role.try(:downcase) === 'cheif'
+  def is_chef?
+    self.role.try(:downcase) === 'chef'
   end
 end

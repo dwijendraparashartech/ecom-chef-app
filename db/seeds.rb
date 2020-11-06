@@ -11,3 +11,13 @@ user.email = 'admin@yopmail.com'
 user.password = 'Pass@123'
 user.role = 'admin'
 user.save
+
+user = User.new
+user.email = 'test@yopmail.com'
+user.password = 'Pass@123'
+user.role = 'chef'
+user.save
+
+
+
+
