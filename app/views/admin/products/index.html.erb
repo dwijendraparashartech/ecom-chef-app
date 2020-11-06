@@ -1,5 +1,6 @@
-    <div class="row">
-    <table class="table">
+<div class="row">
+  <%= link_to "Create New Product", new_admin_product_path %>
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -13,19 +14,19 @@
       </tr>
     </thead>
     <tbody>
-        <% @products.each do |product| %>
-            <tr>
-              <th scope="row"><%= product.id %></th>
-              <td><%= product.user.try(:email) %></td>
-              <td><%= product.name %></td>
-              <td><%= product.description %></td>
-              <td><%= image_tag product.get_image_url, width: '100', height: '100' %></td>
-              <td><%= product.status ? 'Approved' : 'Pending' %></td>
-              <td><a href="/admin/products/<%= product.id %>">View</a></td>
-              <td><%= link_to "Marked As Approved", admin_product_path(product.id), method: :put %></td>
-            </tr>
-        <% end %>
-        
+      <% @products.each do |product| %>
+        <tr>
+          <th scope="row"><%= product.id %></th>
+          <td><%= product.user.try(:email) %></td>
+          <td><%= product.name %></td>
+          <td><%= product.description %></td>
+          <td><%= image_tag product.get_image_url, width: '100', height: '100' %></td>
+          <td><%= product.status ? 'Approved' : 'Pending' %></td>
+          <td><%= link_to "View", admin_product_path(product.id) %></td>
+          <td><%= link_to "Delete", admin_product_path(product.id), method: :delete %></td>
+          <td><%= link_to "Marked As Approved", admin_product_path(product.id), method: :put %></td>
+        </tr>
+      <% end %>
     </tbody>
-    </table>
-    </div>
+  </table>
+</div>
