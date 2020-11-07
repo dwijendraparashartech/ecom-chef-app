@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   namespace :admin do
     root "/admin/dashboard#index"
     resources :dashboard
-    resources :products
+    resources :products do
+      member do
+        put :update_status
+      end
+    end
     resources :collections
   end
 end

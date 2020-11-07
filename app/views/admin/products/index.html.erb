@@ -1,5 +1,5 @@
 <div class="row">
-  <%= link_to "Create New Product", new_admin_product_path %>
+  <%= link_to "Create New Product", new_admin_product_path %><br><br>
   <table class="table">
     <thead>
       <tr>
@@ -22,9 +22,10 @@
           <td><%= product.description %></td>
           <td><%= image_tag product.get_image_url, width: '100', height: '100' %></td>
           <td><%= product.status ? 'Approved' : 'Pending' %></td>
+          <td><%= link_to "#{product.status ? 'Marked As Pending' : 'Marked As Approved'}", update_status_admin_product_path(product.id, {status: !product.status}), method: :put %></td>
           <td><%= link_to "View", admin_product_path(product.id) %></td>
-          <td><%= link_to "Delete", admin_product_path(product.id), method: :delete %></td>
-          <td><%= link_to "Marked As Approved", admin_product_path(product.id), method: :put %></td>
+          <td><%= link_to "Edit", edit_admin_product_path(product.id) %></td>
+          <td><%= link_to 'Destroy', admin_product_path(product.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
