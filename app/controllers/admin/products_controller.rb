@@ -40,9 +40,16 @@ class Admin::ProductsController < Admin::ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  def update_status
-    @product.update(status: params[:status])
-    redirect_to admin_products_path, notice: 'Product status successfully updated'
+  def approve
+    @product.update(status: true)
+
+    new_product = ShopifyAPI::Product.new
+    new_product.title = "Burton Custom Freestlye 151"
+    new_product.product_type = "Snowboard"
+    new_product.vendor = "Burton"
+    new_product.save
+
+    redirect_to admin_products_path, notice: 'Product is approved'
   end
 
   private

@@ -6,7 +6,16 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = current_user.products.all
+    # products = RestClient.get("https://#{ENV['SHOPIFY_API_KEY']}:#{ENV['SHOPIFY_API_PASSWORD']}@#{ENV['SHOPIFY_SHOP_NAME']}.myshopify.com/admin/api/2020-01/products.json")
+    products = ShopifyAPI::Product.all
   end
+
+
+
+
+
+
+
 
   # GET /products/1
   # GET /products/1.json

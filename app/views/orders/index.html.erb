@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Contact Email</th>
+      <th>Total Price</th>
+      <th>Order Number</th>
+      <th>Phone</th>
+      <th>Products</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.name %></td>
+        <td><%= order.contact_email %></td>
+        <td><%= order.total_price %></td>
+        <td><%= order.order_number %></td>
+        <td><%= order.phone %></td>
+       <td><%= order.line_items.map(&:title).join(", ") %><td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
